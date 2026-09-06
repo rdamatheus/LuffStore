@@ -1,0 +1,15 @@
+@import url('./admin.css?v=20260906-1');
+
+[hidden]{display:none!important}
+
+.flash{margin:0 0 16px;border-radius:12px;padding:12px 14px;font-size:.84rem;font-weight:750;border:1px solid #cfe2d6;background:#e7f1eb;color:#315f49}
+.flash.danger{border-color:#e5baba;background:#f7e6e6;color:#8b3838}
+.empty.compact{padding:18px}
+.row-actions{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.form-grid select[multiple]{min-height:190px;padding:8px}
+.table-wrap tbody tr[hidden]{display:none!important}
+
+.login-shell[hidden],.app-shell[hidden]{display:none!important}
+.app-shell:not([hidden]){display:grid}
+
+@media(max-width:760px){.app-shell:not([hidden]){display:block}.row-actions{align-items:flex-start}}
