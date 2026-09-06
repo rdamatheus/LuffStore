@@ -1,5 +1,31 @@
 # Changelog
 
+## 2026-09-06 — Hardening de banco LUFF
+
+### Segurança e isolamento
+
+- corrigida a correlação de `tenant_id` nas políticas públicas e autenticadas de `product_attribute_values`;
+- políticas amplas `FOR ALL` foram substituídas por políticas específicas de `INSERT`, `UPDATE` e `DELETE`;
+- cada tabela mantém uma política de leitura autenticada separada, reduzindo sobreposição de políticas permissivas;
+- mantidos os papéis `owner`, `manager` e `staff` e os mesmos limites funcionais de acesso.
+
+### Performance
+
+- adicionados índices de cobertura para chaves estrangeiras e joins tenant-scoped no schema `luff`;
+- eliminados os avisos de chaves estrangeiras sem índice no advisor do Supabase;
+- eliminados os avisos de múltiplas políticas permissivas do schema `luff`.
+
+### Validação
+
+- leitura, inserção, atualização e exclusão foram testadas como usuário `owner` em transação revertida;
+- advisor de segurança permanece sem alerta específico da LUFF;
+- continua apenas o aviso global `Leaked Password Protection Disabled` do Supabase Auth;
+- avisos de índices ainda “não utilizados” são esperados neste momento porque o sistema acabou de ser criado e ainda não possui tráfego real.
+
+### Migração
+
+- `20260906201730_harden_luff_rls_and_indexes`
+
 ## 2026-09-06 — LUFF Admin v0.2
 
 ### Implementado
@@ -77,7 +103,7 @@
 
 ### Validação
 
-- todas as 19 tabelas do schema `luff` estão com RLS habilitado;
+- todas as tabelas do schema `luff` estão com RLS habilitado;
 - o linter de segurança apontou inicialmente `search_path` mutável na função de atualização; corrigido em migração posterior;
 - permanece um aviso global do projeto Supabase sobre proteção contra senhas vazadas desabilitada, não específico da LUFF.
 
