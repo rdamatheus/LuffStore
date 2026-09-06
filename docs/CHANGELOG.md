@@ -1,5 +1,69 @@
 # Changelog
 
+## 2026-09-06 — LUFF Admin v0.3 Operacional
+
+### Login e navegação
+
+- corrigido o problema em que o usuário era autenticado, mas a tela de login permanecia visível;
+- identificado conflito entre o atributo HTML `hidden` e as regras `display:grid` de `.login-shell` / `.app-shell`;
+- adicionada regra explícita `[hidden] { display: none !important; }`;
+- após autenticação e autorização, a navegação passa explicitamente para `#dashboard`;
+- adicionadas rotas internas por hash para preservar o módulo atual em atualização/navegação;
+- sessão existente é restaurada e abre o painel sem exigir novo login enquanto válida;
+- logout encerra a sessão e retorna à tela de login.
+
+### Operação real do painel
+
+- Dashboard atualizado para refletir catálogo, clientes, campanhas, banners, coleções, looks e indicadores reais;
+- Produtos passam a permitir edição da camada digital/editorial sem alterar os futuros campos operacionais do Velo;
+- Coleções passam a permitir associação de múltiplos produtos;
+- Looks passam a permitir associação de múltiplos produtos;
+- módulo Site ativado com configurações de marca, contato, SEO, publicação e banners;
+- módulo Marketing ativado com campanhas e pipeline de conteúdo;
+- módulo Clientes ativado como CRM com tamanhos, preferências, observações e consentimento de comunicação;
+- módulo Indicadores ativado sobre a base `sales_daily`, preparado para sincronização do Velo;
+- módulo Equipe ativado para gestão interna de usuários pelo Owner;
+- Logs continuam restritos ao Owner.
+
+### Banco
+
+- adicionados `display_name` e `email` em `luff.members`;
+- criadas as tabelas `site_settings`, `site_banners`, `site_sections`, `marketing_campaigns`, `marketing_content`, `customers` e `sales_daily`;
+- adicionados RLS, grants, triggers e índices para os novos módulos;
+- criadas seções iniciais da Home: Novidades, Destaques, Looks e Categorias;
+- criado índice composto para cobrir a FK `marketing_content(campaign_id, tenant_id)`.
+
+### Usuários internos
+
+- criada e implantada a Edge Function `luff-admin-users`;
+- JWT é obrigatório;
+- apenas `owner` ativo da LUFF pode criar ou administrar contas;
+- criação de usuário interno, alteração de papel/status e definição de senha passam pelo backend;
+- nenhuma chave administrativa é exposta no navegador;
+- cadastro público e login social continuam proibidos no LUFF Admin.
+
+### Documentação e versionamento
+
+- criado `docs/OPERATION_MANUAL.md` com especificação funcional e manual operacional completo da v0.3;
+- migrações da etapa operacional versionadas em `supabase/migrations/`;
+- Edge Function versionada em `supabase/functions/luff-admin-users/`;
+- README principal e README do Supabase atualizados para refletir o estado real do projeto.
+
+### Validação
+
+- escrita em `site_banners` e `customers` testada como o novo Owner por RLS dentro de transação revertida;
+- advisor de segurança permanece sem alerta específico da LUFF;
+- permanece apenas o aviso global do Supabase Auth sobre proteção contra senhas vazadas desabilitada;
+- aviso de FK sem índice em `marketing_content` foi corrigido;
+- avisos de `unused_index` permanecem informativos e esperados em um sistema recém-criado e ainda sem tráfego relevante.
+
+### Pendências reais
+
+- validar o login corrigido no navegador publicado usando a credencial do usuário Owner;
+- criar Storage exclusivo para mídias LUFF;
+- conectar o site público às tabelas operacionais/editoriais;
+- homologar e implementar a sincronização com o Velo.
+
 ## 2026-09-06 — Autenticação interna do LUFF Admin
 
 ### Alterado
