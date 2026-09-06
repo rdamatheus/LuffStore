@@ -1,0 +1,40 @@
+name: Validate LUFF
+
+on:
+  push:
+    branches: [master, 'feat/**']
+  pull_request:
+    branches: [master]
+
+permissions:
+  contents: read
+
+jobs:
+  validate-static:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Check JavaScript syntax
+        run: |
+          node --check js/admin.js
+          node --check js/luff-supabase.js
+
+      - name: Check required files
+        run: |
+          test -f admin/index.html
+          test -f css/admin.css
+          test -f docs/ADMIN_V0_2.md
+
+      - name: Guard against service role in frontend
+        run: |
+          if grep -Rni "service_role" js/ admin/; then
+            echo "service_role reference found in frontend"
+            exit 1
+          fi

@@ -1,5 +1,51 @@
 # Changelog
 
+## 2026-09-06 — LUFF Admin v0.2
+
+### Implementado
+
+- usuário principal vinculado à LUFF como `owner`;
+- schema `luff` adicionado à Data API sem remover os schemas existentes;
+- painel administrativo com identidade visual LUFF;
+- autenticação usando Supabase Auth;
+- autorização por papéis `owner`, `manager` e `staff`;
+- dashboard com métricas e status da integração Velo;
+- Central de Taxonomia com Famílias → Categorias → Subcategorias;
+- criação e edição de famílias e categorias;
+- listagem de produtos preparada para importação pelo Velo;
+- cadastro e edição de marcas;
+- visualização de atributos de moda;
+- cadastro e edição de coleções;
+- cadastro e edição de looks;
+- tela de integração Velo em estado `not_configured`;
+- tela de equipe;
+- logs de auditoria restritos ao owner;
+- módulos reservados para Site, Marketing, Clientes e Indicadores;
+- chave `publishable` usada no frontend; nenhum segredo administrativo versionado;
+- `.gitignore` para evitar versionamento acidental de arquivos de ambiente.
+
+### Banco
+
+- adicionada `luff.product_attribute_values` para atributos editoriais no nível do produto;
+- RLS e grants aplicados à nova tabela;
+- migração `expose_luff_schema_to_data_api` aplicada;
+- migração `add_luff_product_attribute_values` aplicada.
+
+### Validação
+
+- teste RLS como `anon`: 4 famílias públicas, 9 categorias públicas e 0 produtos ainda publicados;
+- teste RLS como usuário owner: 4 famílias, 93 categorias/subcategorias e integração Velo acessíveis;
+- inserção temporária protegida por RLS testada em transação e revertida;
+- schema exposto confirmado na configuração do role `authenticator` como `public, storage, graphql_public, luff`.
+
+### Próximos passos
+
+- validar o painel em navegador após publicação/preview;
+- ativar o site público e conectar catálogo;
+- criar Storage exclusivo para mídias da LUFF;
+- implementar convite seguro de usuários por backend/Edge Function;
+- homologar a integração Velo quando houver acesso ao ERP.
+
 ## 2026-09-06 — Fundação LUFF v0.1
 
 ### Implementado
@@ -37,9 +83,6 @@
 
 ### Pendências
 
-- vincular o usuário owner da LUFF;
-- configurar o schema `luff` como schema exposto na Data API quando o frontend for conectado;
-- criar Storage de mídia da LUFF;
-- construir painel administrativo;
+- configurar Storage de mídia da LUFF;
 - homologar API/integração do Velo em etapa posterior;
 - ativar proteção contra senhas vazadas no Supabase quando disponível/configurado.
