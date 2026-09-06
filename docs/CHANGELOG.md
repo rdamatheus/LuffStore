@@ -1,5 +1,25 @@
 # Changelog
 
+## 2026-09-06 — Autenticação interna do LUFF Admin
+
+### Alterado
+
+- removido o botão `Continuar com Google` do painel administrativo;
+- removida a chamada `signInWithOAuth` e toda a lógica de redirect OAuth específica da LUFF;
+- mantido somente login por e-mail e senha para usuários previamente provisionados;
+- a tela de login informa explicitamente que o acesso é exclusivo para usuários criados internamente pela administração;
+- não existe fluxo público de cadastro no LUFF Admin.
+
+### Regra de arquitetura
+
+- usuários do painel são provisionados internamente e depois vinculados ao tenant LUFF com papel `owner`, `manager` ou `staff`;
+- o Google Auth do projeto Supabase compartilhado não foi desabilitado globalmente, porque o mesmo projeto também atende o Personal OS;
+- a LUFF simplesmente não expõe nem utiliza OAuth do Google no próprio painel.
+
+### Pendência operacional
+
+- a conta owner atualmente vinculada ao tenant foi originalmente criada via Google no Supabase compartilhado; antes de depender apenas do formulário e-mail/senha, é necessário provisionar uma credencial interna compatível para o owner ou criar uma conta administrativa interna específica para a LUFF.
+
 ## 2026-09-06 — Hardening de banco LUFF
 
 ### Segurança e isolamento
