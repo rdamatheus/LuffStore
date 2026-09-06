@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0b0b0c">
+  <title>LUFF Admin</title>
+  <link rel="stylesheet" href="../css/admin.css?v=20260906-1">
+</head>
+<body>
+  <section id="loginView" class="login-shell">
+    <div class="login-panel">
+      <div class="brand-lockup"><span class="brand-name">LUFF</span><span class="brand-sub">STORE</span></div>
+      <span class="eyebrow">Painel administrativo</span>
+      <h1>Gestão digital da LUFF</h1>
+      <p class="muted">Acesso exclusivo para usuários autorizados.</p>
+      <form id="loginForm" class="form-stack">
+        <label>E-mail<input id="email" type="email" autocomplete="email" required></label>
+        <label>Senha<input id="password" type="password" autocomplete="current-password" required></label>
+        <button class="btn primary" type="submit">Entrar</button>
+        <p id="loginError" class="error" role="alert"></p>
+      </form>
+    </div>
+  </section>
+
+  <div id="app" class="app-shell" hidden>
+    <aside class="sidebar">
+      <div class="sidebar-brand"><span class="brand-name">LUFF</span><span class="brand-sub">STORE</span><small>ADMIN</small></div>
+      <nav class="nav">
+        <button data-view="dashboard" class="nav-item active">Visão geral</button>
+        <span class="nav-label">Catálogo</span>
+        <button data-view="taxonomy" class="nav-item">Famílias e categorias</button>
+        <button data-view="products" class="nav-item">Produtos</button>
+        <button data-view="brands" class="nav-item">Marcas</button>
+        <button data-view="attributes" class="nav-item">Atributos</button>
+        <button data-view="collections" class="nav-item">Coleções</button>
+        <button data-view="looks" class="nav-item">Looks</button>
+        <span class="nav-label">Negócio</span>
+        <button data-view="site" class="nav-item">Site</button>
+        <button data-view="marketing" class="nav-item">Marketing</button>
+        <button data-view="clients" class="nav-item">Clientes</button>
+        <button data-view="indicators" class="nav-item">Indicadores</button>
+        <span class="nav-label">Sistema</span>
+        <button data-view="integrations" class="nav-item">Integrações</button>
+        <button data-view="team" class="nav-item">Equipe</button>
+        <button data-view="logs" class="nav-item owner-only">Logs</button>
+      </nav>
+      <div class="sidebar-foot">
+        <span id="userRole" class="role-pill"></span>
+        <button id="logoutBtn" class="btn ghost">Sair</button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div><span id="sectionEyebrow" class="eyebrow">LUFF Digital</span><h1 id="sectionTitle">Visão geral</h1></div>
+        <div class="topbar-actions"><span id="syncBadge" class="status neutral">Velo não configurado</span><span id="userEmail" class="user-email"></span></div>
+      </header>
+      <section id="content" class="content" aria-live="polite"></section>
+    </main>
+  </div>
+
+  <dialog id="entityDialog" class="dialog"><form method="dialog" id="entityForm" class="dialog-card"><div class="dialog-head"><div><span class="eyebrow" id="dialogEyebrow">Cadastro</span><h2 id="dialogTitle">Novo item</h2></div><button type="button" id="dialogClose" class="icon-btn" aria-label="Fechar">×</button></div><div id="dialogFields" class="form-grid"></div><div class="dialog-actions"><button type="button" id="dialogCancel" class="btn secondary">Cancelar</button><button type="submit" class="btn primary">Salvar</button></div><p id="dialogError" class="error"></p></form></dialog>
+
+  <script type="module" src="../js/admin.js?v=20260906-1"></script>
+</body>
+</html>
