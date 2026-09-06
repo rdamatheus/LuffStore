@@ -2,7 +2,7 @@ name: Validate LUFF
 
 on:
   push:
-    branches: [master, 'feat/**']
+    branches: [master, 'feat/**', 'fix/**', 'chore/**']
   pull_request:
     branches: [master]
 
@@ -24,17 +24,27 @@ jobs:
       - name: Check JavaScript syntax
         run: |
           node --check js/admin.js
+          node --check js/admin-v03.js
           node --check js/luff-supabase.js
 
       - name: Check required files
         run: |
           test -f admin/index.html
           test -f css/admin.css
-          test -f docs/ADMIN_V0_2.md
+          test -f css/admin-v03.css
+          test -f docs/OPERATION_MANUAL.md
+          test -f docs/AUTHENTICATION.md
+          test -f supabase/functions/luff-admin-users/index.ts
+          test -f supabase/migrations/20260906_add_luff_operational_modules_v1.sql
 
-      - name: Guard against service role in frontend
+      - name: Check active admin entrypoints
         run: |
-          if grep -Rni "service_role" js/ admin/; then
-            echo "service_role reference found in frontend"
+          grep -q "admin-v03.js" admin/index.html
+          grep -q "admin-v03.css" admin/index.html
+
+      - name: Guard against administrative secrets in frontend
+        run: |
+          if grep -RniE "service_role|SUPABASE_SECRET_KEYS|SUPABASE_SERVICE_ROLE_KEY" js/ admin/ css/; then
+            echo "Administrative secret reference found in frontend"
             exit 1
           fi
