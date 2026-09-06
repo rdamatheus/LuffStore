@@ -13,10 +13,8 @@
       <div class="brand-lockup"><span class="brand-name">LUFF</span><span class="brand-sub">STORE</span></div>
       <span class="eyebrow">Painel administrativo</span>
       <h1>Gestão digital da LUFF</h1>
-      <p class="muted">Acesso exclusivo para usuários autorizados.</p>
+      <p class="muted">Acesso exclusivo para usuários criados internamente pela administração.</p>
       <form id="loginForm" class="form-stack">
-        <button class="btn secondary" type="button" id="googleLogin">Continuar com Google</button>
-        <div style="display:flex;align-items:center;gap:10px;color:#77736c;font-size:.72rem"><span style="height:1px;background:#343437;flex:1"></span><span>ou entre com e-mail</span><span style="height:1px;background:#343437;flex:1"></span></div>
         <label>E-mail<input id="email" type="email" autocomplete="email" required></label>
         <label>Senha<input id="password" type="password" autocomplete="current-password" required></label>
         <button class="btn primary" type="submit">Entrar</button>
@@ -65,23 +63,5 @@
   <dialog id="entityDialog" class="dialog"><form method="dialog" id="entityForm" class="dialog-card"><div class="dialog-head"><div><span class="eyebrow" id="dialogEyebrow">Cadastro</span><h2 id="dialogTitle">Novo item</h2></div><button type="button" id="dialogClose" class="icon-btn" aria-label="Fechar">×</button></div><div id="dialogFields" class="form-grid"></div><div class="dialog-actions"><button type="button" id="dialogCancel" class="btn secondary">Cancelar</button><button type="submit" class="btn primary">Salvar</button></div><p id="dialogError" class="error"></p></form></dialog>
 
   <script type="module" src="../js/admin.js?v=20260906-1"></script>
-  <script type="module">
-    import { supabase } from '../js/luff-supabase.js';
-    const googleButton = document.querySelector('#googleLogin');
-    const errorBox = document.querySelector('#loginError');
-    googleButton?.addEventListener('click', async () => {
-      googleButton.disabled = true;
-      errorBox.textContent = '';
-      const redirectTo = new URL('./', window.location.href).href;
-      const { error } = await supabase.auth.signInWithOAuth({
-        provider: 'google',
-        options: { redirectTo }
-      });
-      if (error) {
-        errorBox.textContent = error.message || 'Não foi possível entrar com Google.';
-        googleButton.disabled = false;
-      }
-    });
-  </script>
 </body>
 </html>
