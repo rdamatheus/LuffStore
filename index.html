@@ -1,106 +1,55 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#080808" />
-  <meta name="description" content="LUFF Store — moda masculina, calçados e acessórios em Juiz de Fora. Catálogo, novidades e atendimento pelo WhatsApp." />
-  <title>LUFF Store — Moda Masculina</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090909">
+  <meta name="description" content="LUFF Store — moda masculina, calçados e acessórios em Juiz de Fora. Explore as categorias e consulte a seleção pelo WhatsApp.">
+  <title>LUFF Store — Moda Masculina em Juiz de Fora</title>
+  <link rel="icon" href="./assets/brand/luff-original.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./css/site.css" />
+  <link rel="stylesheet" href="./css/site.css">
 </head>
 <body>
-  <header class="site-header" id="inicio">
-    <a class="brand" href="#inicio" aria-label="LUFF Store">
-      <img src="./assets/brand/luff-logo.webp" alt="LUFF Store" />
-    </a>
-    <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false">☰</button>
-    <nav class="main-nav" aria-label="Navegação principal">
-      <a href="#inicio">Início</a>
-      <a href="#categorias">Categorias</a>
-      <a href="#novidades">Novidades</a>
-      <a href="#looks">Looks</a>
-      <a href="#sobre">Sobre</a>
-      <a href="#contato">Contato</a>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <header class="site-header">
+    <a class="brand" href="#inicio" aria-label="LUFF Store — início"><span class="brand-crop"><img src="./assets/brand/luff-original.png" alt="LUFF Store" width="531" height="602"></span></a>
+    <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-controls="mainNav" aria-expanded="false"><span aria-hidden="true">☰</span></button>
+    <nav class="main-nav" id="mainNav" aria-label="Navegação principal">
+      <a href="#inicio">Início</a><a href="#catalogo">Catálogo</a><a href="#novidades" data-section-nav="novidades">Novidades</a><a href="#looks" data-section-nav="looks">Looks</a><a href="#sobre">Sobre</a><a href="#contato">Contato</a>
     </nav>
-    <a class="header-cta" href="https://wa.me/553235124993" target="_blank" rel="noopener">WhatsApp</a>
+    <a class="btn header-cta" data-wa="Olá, vim pelo site da LUFF Store." href="https://wa.me/553235124993" target="_blank" rel="noopener">WhatsApp</a>
   </header>
-
-  <main>
-    <section class="hero">
-      <div class="hero-copy">
-        <p class="eyebrow">MODA MASCULINA</p>
-        <h1>Estilo que te acompanha em <em>todo movimento.</em></h1>
-        <p>Peças selecionadas em roupas, calçados e acessórios para homens que valorizam imagem, conforto e elegância.</p>
-        <div class="hero-actions">
-          <a class="btn btn-gold" href="#categorias">Ver coleção <span>→</span></a>
-          <a class="btn btn-outline" href="https://wa.me/553235124993?text=Olá%2C%20vim%20pelo%20site%20da%20LUFF%20Store." target="_blank" rel="noopener">Chamar no WhatsApp</a>
+  <main id="conteudo" tabindex="-1">
+    <div id="homeView">
+      <section class="hero" id="inicio" aria-labelledby="heroTitle">
+        <div class="hero-copy">
+          <p class="eyebrow">MODA MASCULINA · JUIZ DE FORA</p>
+          <h1 id="heroTitle">Estilo que te acompanha em <em>todo movimento.</em></h1>
+          <p>Roupas, calçados e acessórios para vestir bem, com conforto e identidade.</p>
+          <div class="hero-actions"><a class="btn btn-gold" href="#catalogo">Explorar catálogo <span aria-hidden="true">↗</span></a><a class="text-link" data-wa="Olá, quero conhecer a seleção da LUFF Store." href="https://wa.me/553235124993" target="_blank" rel="noopener">Fale com a LUFF</a></div>
+          <p class="brand-signature" data-slogan>CONTROLE O RUMO. VISTA O MOVIMENTO.</p>
         </div>
-        <small>CONTROLE O RUMO. VISTA O MOVIMENTO.</small>
-      </div>
-      <div class="hero-media" role="img" aria-label="Look masculino LUFF"></div>
-      <div class="hero-words" aria-hidden="true"><span>ROUPAS</span><span>CALÇADOS</span><span>ACESSÓRIOS</span><span>ATITUDE</span></div>
-    </section>
-
-    <section class="summer-banner" id="novidades" aria-labelledby="summer-title">
-      <div class="summer-copy">
-        <p>COLEÇÃO DE</p>
-        <h2 id="summer-title">VERÃO</h2>
-        <strong>EM BREVE</strong>
-        <span>Novidades chegando na LUFF Store. Prepare-se para uma nova temporada.</span>
-      </div>
-      <div class="summer-quote">Mais estilo.<br>Mais movimento.</div>
-      <div class="summer-actions">
-        <a class="btn btn-gold" href="#categorias">Ver novidades</a>
-        <a class="btn btn-outline dark" href="https://www.instagram.com/_luff.store/" target="_blank" rel="noopener">Acompanhar no Instagram</a>
-      </div>
-    </section>
-
-    <section class="section" id="categorias">
-      <div class="section-head"><div><p class="eyebrow">CATÁLOGO</p><h2>Compre por categoria</h2></div><a href="#categorias">Ver todas →</a></div>
-      <div class="category-grid" id="categoryGrid" aria-live="polite"></div>
-    </section>
-
-    <section class="section" id="destaques">
-      <div class="section-head"><div><p class="eyebrow">SELEÇÃO LUFF</p><h2>Destaques da LUFF</h2></div><a href="#destaques">Ver todos →</a></div>
-      <div class="product-grid" id="productGrid" aria-live="polite"></div>
-    </section>
-
-    <section class="looks" id="looks">
-      <div class="looks-intro">
-        <p class="eyebrow">INSPIRAÇÃO</p>
-        <h2>Looks que inspiram</h2>
-        <p>Combinações para diferentes ocasiões. Encontre seu estilo e fale com a equipe LUFF.</p>
-        <a class="btn btn-outline" href="https://wa.me/553235124993?text=Olá%2C%20quero%20ajuda%20para%20montar%20um%20look%20na%20LUFF." target="_blank" rel="noopener">Montar meu look →</a>
-      </div>
-      <div class="look-card"><img src="./assets/editorial/hero.webp" alt="Look casual masculino"/><span>CASUAL</span></div>
-      <div class="look-card"><img src="./assets/editorial/summer.webp" alt="Look masculino para trabalho"/><span>TRABALHO</span></div>
-      <div class="look-card"><img src="./assets/editorial/hero.webp" alt="Look masculino para noite"/><span>NOITE</span></div>
-    </section>
-
-    <section class="benefits" aria-label="Diferenciais da LUFF">
-      <div><b>Atendimento personalizado</b><span>pelo WhatsApp</span></div>
-      <div><b>Curadoria masculina</b><span>roupas, calçados e acessórios</span></div>
-      <div><b>Loja física em Juiz de Fora</b><span>venha nos visitar</span></div>
-      <div><b>Moda com identidade</b><span>qualidade e estilo</span></div>
-    </section>
-
-    <section class="about section" id="sobre">
-      <div><p class="eyebrow">LUFF STORE</p><h2>Moda masculina para acompanhar o seu ritmo.</h2></div>
-      <p>A LUFF reúne roupas, calçados e acessórios com uma curadoria voltada a homens que querem vestir bem sem complicação. No site, você encontra a seleção da marca e pode falar diretamente com a equipe para tirar dúvidas, consultar tamanhos e reservar peças.</p>
-    </section>
+        <figure class="hero-media"><img src="./assets/editorial/look-loja.jpg" alt="Look masculino com blusa verde, calça cinza e tênis branco, fotografado na LUFF" width="914" height="1220" fetchpriority="high"><figcaption>O movimento começa com você.</figcaption></figure>
+      </section>
+      <div class="family-nav" id="familyNav" aria-label="Famílias do catálogo"></div>
+      <div id="catalogStatus" role="status" aria-live="polite" class="load-status">Carregando categorias…</div>
+      <div id="homeSections"></div>
+      <section class="benefits" aria-label="Diferenciais da LUFF"><div><strong>Atendimento pessoal</strong><span>Converse com a equipe pelo WhatsApp.</span></div><div><strong>Uma combinação para você</strong><span>Ajuda para escolher e combinar suas peças.</span></div><div><strong>Loja em Juiz de Fora</strong><span>Conheça a LUFF em São Mateus.</span></div></section>
+      <section class="about section" id="sobre" aria-labelledby="aboutTitle"><img src="./assets/editorial/loja.jpg" alt="Entrada da loja LUFF Store em São Mateus" width="640" height="1138" loading="lazy"><div><p class="eyebrow">CONHEÇA A LUFF</p><h2 id="aboutTitle">Sua próxima escolha começa aqui.</h2><p>A LUFF reúne roupas, calçados e acessórios para homens que querem vestir bem sem complicação.</p><p>Visite nossa loja em São Mateus ou converse com a equipe para conhecer as opções, consultar tamanhos e montar sua combinação.</p><a class="btn" href="#contato">Conhecer a loja</a></div></section>
+    </div>
+    <section id="routeView" class="section route-view" hidden aria-live="polite"></section>
+    <noscript><section class="section"><h2>Converse com a LUFF</h2><p>Ative o JavaScript para navegar pelo catálogo ou consulte a seleção diretamente com nossa equipe.</p><a class="btn" href="https://wa.me/553235124993">Atendimento pelo WhatsApp</a></section></noscript>
   </main>
-
   <footer id="contato">
-    <div class="footer-brand"><img src="./assets/brand/luff-logo.webp" alt="LUFF Store"/><p>CONTROLE O RUMO.<br>VISTA O MOVIMENTO.</p></div>
-    <div><h3>Institucional</h3><a href="#sobre">Sobre a LUFF</a><a href="#categorias">Categorias</a><a href="#novidades">Novidades</a></div>
-    <div><h3>Atendimento</h3><a href="https://wa.me/553235124993" target="_blank" rel="noopener">WhatsApp</a><a href="https://www.instagram.com/_luff.store/" target="_blank" rel="noopener">Instagram</a></div>
-    <div><h3>Nossa loja</h3><p>Rua São Mateus, 543<br>São Mateus — Juiz de Fora / MG</p><p>Seg a Sex: 9h às 19h<br>Sáb: 9h às 14h</p><a class="btn btn-outline" href="https://www.google.com/maps/search/?api=1&query=Rua+S%C3%A3o+Mateus+543+Juiz+de+Fora+MG" target="_blank" rel="noopener">Ver no mapa</a></div>
+    <div class="footer-intro"><a class="brand" href="#inicio" aria-label="LUFF Store — início"><span class="brand-crop"><img src="./assets/brand/luff-original.png" alt="LUFF Store" width="531" height="602" loading="lazy"></span></a><p data-slogan>CONTROLE O RUMO.<br>VISTA O MOVIMENTO.</p></div>
+    <div><h2>Explore</h2><a href="#catalogo">Catálogo completo</a><a href="#sobre">Sobre a LUFF</a><a href="#looks" data-section-nav="looks">Looks e combinações</a></div>
+    <div><h2>Vamos conversar</h2><a data-wa="Olá, vim pelo site da LUFF Store." href="https://wa.me/553235124993" target="_blank" rel="noopener">WhatsApp <span data-phone>(32) 3512-4993</span></a><a data-instagram href="https://www.instagram.com/_luff.store/" target="_blank" rel="noopener">Instagram @_luff.store</a></div>
+    <div><h2>Nossa loja</h2><p data-address>Rua São Mateus, 543<br>São Mateus — Juiz de Fora / MG</p><p>Seg a Sex: 9h às 19h<br>Sáb: 9h às 14h</p><a class="text-link" data-map href="https://www.google.com/maps/search/?api=1&query=Rua+S%C3%A3o+Mateus+543+Juiz+de+Fora+MG" target="_blank" rel="noopener">Como chegar <span aria-hidden="true">↗</span></a></div>
   </footer>
-
-  <a class="floating-whatsapp" href="https://wa.me/553235124993?text=Olá%2C%20vim%20pelo%20site%20da%20LUFF%20Store." target="_blank" rel="noopener" aria-label="Falar no WhatsApp">WA</a>
+  <a class="floating-whatsapp" data-wa="Olá, vim pelo site da LUFF Store." href="https://wa.me/553235124993" target="_blank" rel="noopener" aria-label="Falar com a LUFF no WhatsApp"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20.5 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20.5l1.6-4.9A8.5 8.5 0 1 1 20.5 11.5Z"/><path d="M8 7.5c0 4 3 7 7 7l1-2-2-1-1 1c-1.5-.7-2.8-2-3.5-3.5l1-1-1-2Z"/></svg></a>
   <script type="module" src="./js/site.js"></script>
 </body>
 </html>
