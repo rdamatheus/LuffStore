@@ -196,3 +196,14 @@
 - configurar Storage de mídia da LUFF;
 - homologar API/integração do Velo em etapa posterior;
 - ativar proteção contra senhas vazadas no Supabase quando disponível/configurado.
+## 2026-09-07 — Site público v1.1
+
+- Corrigido o enquadramento do logo no cabeçalho e no rodapé, removendo a área preta excessiva do arquivo original.
+- Substituídas montagens editoriais inadequadas por fotografias reais da LUFF para hero, loja, camisetas, calças, bermudas e tênis.
+- Removidos cards de produto de contingência que poderiam parecer produtos reais quando o catálogo está vazio.
+- Catálogo público reorganizado por família e categoria, mantendo a taxonomia cadastrada no banco.
+- Cada categoria passou a ter rota própria; categorias sem foto aprovada usam apresentação neutra.
+- Adicionados estados vazios, consulta contextualizada pelo WhatsApp, breadcrumbs e rotas de coleção/look preparadas para publicação futura.
+- Corrigidos foco visível, link para conteúdo, menu com `aria-expanded`, botão flutuante acessível, contraste e preferência por movimento reduzido.
+- Site público mantém leitura anônima de conteúdo publicado; painel administrativo continua isolado.
+- Validação: sintaxe JavaScript, referências de assets, HTML estático e `git diff --check` aprovados.
