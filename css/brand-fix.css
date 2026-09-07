@@ -1,0 +1,29 @@
+.brand-crop{
+  display:block;
+  position:relative;
+  width:190px;
+  height:72px;
+  overflow:hidden;
+  flex:0 0 auto;
+}
+.brand-crop img{
+  position:absolute;
+  width:212px;
+  max-width:none;
+  height:auto;
+  left:-22px;
+  top:-86px;
+}
+.footer-brand .brand-crop{
+  width:170px;
+  height:64px;
+}
+.footer-brand .brand-crop img{
+  width:190px;
+  left:-20px;
+  top:-77px;
+}
+@media(max-width:760px){
+  .brand-crop{width:160px;height:61px}
+  .brand-crop img{width:179px;left:-19px;top:-73px}
+}
