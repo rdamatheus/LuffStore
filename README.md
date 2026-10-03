@@ -1,6 +1,6 @@
 # LUFF Store
 
-Projeto digital da LUFF Store, separado do Croma Hub e com domínio de negócio isolado do Personal OS.
+Projeto digital da LUFF Store, com repositório e domínio de negócio próprios. A infraestrutura de dados é compartilhada com o projeto Supabase do Croma Hub, mas permanece isolada nos schemas `luff` e `luff_private`.
 
 ## Objetivo
 
@@ -11,11 +11,11 @@ Construir uma presença digital premium para moda masculina, começando por cat�
 - repositório GitHub dedicado `rdamatheus/LuffStore`;
 - GitHub Pages publicado;
 - painel administrativo operacional em `/admin/`;
-- autenticação interna por e-mail e senha;
-- perfis `owner`, `manager` e `staff`;
+- autenticação interna por e-mail e senha usando o Auth compartilhado do projeto Supabase do Croma Hub;
+- perfis `owner`, `manager` e `staff` próprios da LUFF;
 - banco LUFF isolado nos schemas `luff` e `luff_private`;
-- uso temporário do mesmo projeto Supabase do Personal OS por limite do plano gratuito;
-- arquitetura preparada para extração futura para um projeto Supabase exclusivo;
+- backend centralizado no projeto Supabase `croma-hub`, sem compartilhar tabelas de negócio com a Croma ou com o Personal OS;
+- projeto Supabase antigo mantido temporariamente apenas como rollback da migração;
 - integração Velo preparada, ainda não configurada.
 
 ## Regra de domínio
@@ -72,17 +72,20 @@ Módulos operacionais:
 ## Segurança
 
 - nenhuma chave administrativa, senha ou token do Velo é versionado;
+- apenas a chave pública do Supabase é usada no frontend;
 - RLS obrigatório nas tabelas sensíveis;
 - permissões por perfil verificadas no banco;
-- criação de usuários internos passa por Edge Function protegida;
+- criação de usuários internos passa por Edge Function protegida `luff-admin-users`;
+- `luff_private` não é exposto pela Data API;
 - logs e rastreabilidade para ações administrativas relevantes;
-- Google Auth permanece disponível apenas porque o projeto Supabase é compartilhado com o Personal OS; o LUFF Admin não expõe login social.
+- compartilhar o projeto Supabase não dá acesso cruzado aos dados da Croma ou do Personal OS.
 
 ## Fases
 
 1. Fundação e catálogo — concluída;
 2. Painel administrativo operacional — concluída na v0.3;
-3. Site público conectado ao catálogo — próxima etapa;
-4. Homologação e integração Velo;
-5. CRM e indicadores enriquecidos por vendas;
-6. E-commerce e experiências inteligentes.
+3. Migração para infraestrutura central do Croma Hub — concluída;
+4. Site público conectado ao catálogo — próxima etapa;
+5. Homologação e integração Velo;
+6. CRM e indicadores enriquecidos por vendas;
+7. E-commerce e experiências inteligentes.
