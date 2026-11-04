@@ -1,6 +1,6 @@
 // Public presentation helpers. No administrative session or write operations.
 export const escapeHTML = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-export function safeURL(value, base = 'https://rdamatheus.github.io/LuffStore/') {
+export function safeURL(value, base = new URL('../', import.meta.url).href) {
   if (typeof value !== 'string' || !value.trim() || /[\u0000-\u001f\u007f]/.test(value)) return null;
   try {
     const url = new URL(value.trim(), base);
